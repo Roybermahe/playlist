@@ -1,20 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Lista canciones
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>canciones</ion-label>
+    </ion-list-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-item *ngFor="let item of listaDeCanciones; let i = index" [routerLink]="['/detalle', i]" >
+      <ion-avatar slot="start">
+        <img src="https://img.icons8.com/fluent/48/000000/microsoft-groove.png"/>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{item.name}}</h2>
+        <p>espectadores: {{item.listeners}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
